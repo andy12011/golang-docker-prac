@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  server:
+    build:
+      context: ./docker/golang
+      dockerfile: Dockerfile
+    working_dir: /server
+    volumes:
+      - .:/server
+    ports:
+      - "5000:5000"
+    entrypoint: go run main.go
+    restart: "no"
